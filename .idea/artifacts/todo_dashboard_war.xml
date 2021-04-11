@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="todo-dashboard:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>todo-dashboard</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="todo-dashboard-1.0.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="todo-dashboard:war exploded" />
+    </root>
+  </artifact>
+</component>

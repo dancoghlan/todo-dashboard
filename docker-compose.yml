@@ -1,0 +1,66 @@
+version: '3'
+
+services:
+  jenkins:
+    image: jenkins/jenkins
+    privileged: true
+    user: root
+    ports:
+      - 8085:8080
+      - 50003:50000
+    volumes:
+      - ~/jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    expose:
+      - 3306
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=database
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8084:80"
+    environment:
+      PMA_HOST: db
+
+  todo-dashboard:
+    image: coghlada/todo-dashboard:1.0.0
+    build:
+      context: ../todo-dashboard
+    restart: always
+    ports:
+      - "8080:8080"
+
+  gateway-service:
+    image: coghlada/gateway-service:1.0.0
+    build:
+      context: ../gateway-service
+    restart: always
+    ports:
+      - "8081:8081"
+
+  todo-service:
+    image: coghlada/todo-service:1.0.0
+    build:
+      context: ../todo-service
+    restart: always
+    ports:
+      - "8082:8082"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
