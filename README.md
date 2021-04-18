@@ -1,6 +1,4 @@
-Example: https://auth0.com/blog/spring-boot-authorization-tutorial-secure-an-api-java/
-
-Steps to run:
+<h3>Steps to run:</h3>
 1. Build jar with Maven
 2. docker network create services-network NETWORK
 3. Create image
@@ -9,14 +7,19 @@ Steps to run:
    <pre>docker run --network services-network --name todo-dashboard -p 8081:8081 coghlada/todo-dashboard</pre>
 
 
-Steps to run as docker-compose:
+<h3>Steps to run using docker-compose:</h3>
 1. Build jars with Maven
-2. Dd to directory with docker-compose.yml file
-3. Build docker-compose file
-    <pre>docker-compose build</pre>
-4. Start containers with docker-compose
+2. Cd to directory with docker-compose.yaml file
+3. Start containers with docker-compose
     <pre>docker-compose up --build -d</pre>
-5. Check containers are running
+4. Check containers are running
     <pre>docker-compose ps</pre>
-6. Tail logs of services, eg:
+5. Tail logs of services, eg:
     <pre>docker logs --follow *container-id*</pre>
+
+<h2>Useful Links</h2>
+- https://auth0.com/blog/spring-boot-authorization-tutorial-secure-an-api-java/
+- https://dzone.com/articles/deploying-springboot-in-ecs-part-1
+- https://dzone.com/articles/jenkins-pipeline-with-sonarqube-and-gitlab
+- https://bidhankhatri.com.np/system/docker-compose-file-for-mysql-and-phpmyadmin/
+- https://tomgregory.com/building-a-spring-boot-application-in-jenkins/

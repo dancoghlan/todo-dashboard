@@ -41,7 +41,12 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public void addTodo(String name, String description, Date targetDate, boolean isDone) {
-        Todo todo = new Todo(name, description, targetDate, isDone);
+        Todo todo = Todo.builder()
+                .userName(name)
+                .description(description)
+                .targetDate(targetDate)
+                .isDone(isDone)
+                .build();
         String bearerToken = tokenService.getBearerToken();
         todoRestClient.addTodo(todo, bearerToken);
     }

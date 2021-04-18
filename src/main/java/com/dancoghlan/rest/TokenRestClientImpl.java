@@ -2,8 +2,7 @@ package com.dancoghlan.rest;
 
 import com.dancoghlan.model.OAuthRequest;
 import com.dancoghlan.model.OAuthResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,8 +12,8 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Component
+@Slf4j
 public class TokenRestClientImpl implements TokenRestClient {
-    private static final Logger logger = LoggerFactory.getLogger(TodoRestClientImpl.class);
     private final WebClient webClient;
     private final OAuthRequest oAuthRequest;
 
