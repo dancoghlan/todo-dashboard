@@ -2,6 +2,7 @@ package com.dancoghlan.controller;
 
 import com.dancoghlan.model.Todo;
 import com.dancoghlan.service.TodoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+@Slf4j
 public class TodoController {
 
     @Autowired
@@ -32,6 +34,7 @@ public class TodoController {
 
     @RequestMapping(value = "/list-todos", method = RequestMethod.GET)
     public String showTodos(ModelMap model) {
+        log.info("Retrieving todos from todo-service");
         String userName = getLoggedInUserName(model);
         model.put("todos", todoService.retrieveTodos(userName));
         return "list-todos";

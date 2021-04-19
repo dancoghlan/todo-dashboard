@@ -4,12 +4,9 @@ import lombok.*;
 
 import java.util.Date;
 
-@Getter
-@Setter
-@ToString
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
 @Builder(builderClassName = "Builder")
 public class Todo {
     private int id;

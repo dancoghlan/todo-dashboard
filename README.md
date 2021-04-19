@@ -23,3 +23,5 @@
 - https://dzone.com/articles/jenkins-pipeline-with-sonarqube-and-gitlab
 - https://bidhankhatri.com.np/system/docker-compose-file-for-mysql-and-phpmyadmin/
 - https://tomgregory.com/building-a-spring-boot-application-in-jenkins/
+- https://www.linode.com/docs/guides/zipkin-server-configuration-using-docker-and-mysql/
+- https://livebook.manning.com/book/spring-microservices-in-action-second-edition/chapter-11/v-8/21

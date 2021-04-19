@@ -3,13 +3,10 @@ package com.dancoghlan.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder(builderClassName = "Builder")
-@EqualsAndHashCode
 public class OAuthRequest {
 
     @JsonProperty("client_id")
